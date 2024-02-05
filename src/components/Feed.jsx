@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useState, useeEffect } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import SideBar from "./SideBar";
 import Videos from "./Videos";
@@ -7,12 +7,12 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const Feed = () => {
 
-  useEffect(()=>{
+  const [selectedCategory, setSelectedCategory] = useState('New')
 
-    const [selectedCategory, setSelectedCategory]=useState('New')
-
-    fetchFromAPI(`https://youtube-v31.p.rapidapi.com/captions?part=snippet&q=${selectedCategory}`);
+  useEffect( () => {
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
   }, []);
+
   return (
     <Stack sx={{ flexDirection: { xs: "column", md: "row" } }}>
       <Box
