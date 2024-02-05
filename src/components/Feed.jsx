@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useeEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import SideBar from "./SideBar";
+import Videos from "./Videos";
+import { fetchFromAPI } from "../utils/fetchFromAPI";
 
 const Feed = () => {
+
+  useEffect(()=>{
+
+    const [selectedCategory, setSelectedCategory]=useState('New')
+
+    fetchFromAPI(`https://youtube-v31.p.rapidapi.com/captions?part=snippet&q=${selectedCategory}`);
+  }, []);
   return (
     <Stack sx={{ flexDirection: { xs: "column", md: "row" } }}>
       <Box
@@ -43,7 +52,8 @@ const Feed = () => {
           New <span style={{ color: "#f31503" }}>Videos</span>
         </Typography>
 
-        <Video />
+        <Videos videos={[]}/>
+
       </Box>
     </Stack>
   );
