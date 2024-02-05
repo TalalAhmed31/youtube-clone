@@ -25,6 +25,26 @@ const Feed = () => {
           copyright 2024
         </Typography>
       </Box>
+
+      <Box
+        p={2}
+        sx={{
+          overflowY: "auto",
+          height: "90vh",
+          flex: "2",
+        }}
+      >
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          mb={2}
+          sx={{ color: "#fff" }}
+        >
+          New <span style={{ color: "#f31503" }}>Videos</span>
+        </Typography>
+
+        <Video />
+      </Box>
     </Stack>
   );
 };
