@@ -1,4 +1,4 @@
-import React from 'react'
+import { Box, CardContent, CardMedia, Typography} from '@mui/material';
 
 const ChannelDetail = () => {
   return (
