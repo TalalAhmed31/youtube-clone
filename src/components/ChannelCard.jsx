@@ -10,4 +10,4 @@ const ChannelCard = () => {
   )
 }
 
-export default ChannelCard
+export default ChannelCard 
